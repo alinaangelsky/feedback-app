@@ -79,3 +79,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 7. npm run build
 8. npm i -g serve
 9. serve -s build
+
+10. npm install json-server
+11. npm run server
+12. package concurrently to run both front and backend.
+    npm i concurrently
