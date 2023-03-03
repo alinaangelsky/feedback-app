@@ -2,17 +2,17 @@
 import { useContext } from "react"
 import FeedbackItem from './FeedbackItem'
 import FeedbackContext from "../context/FeedbackContext"
+import Spinner from "./shared/Spinner"
 
 // NOTE: added layout prop for nicer animation
 // https://www.framer.com/docs/animation/#layout-animations
 
 function FeedbackList() {
-  const {feedback} = useContext(FeedbackContext)
-    if(!feedback || feedback.length === 0){
+  const {feedback, isLoading } = useContext(FeedbackContext)
+    if(!isLoading && !(feedback || feedback.length === 0)){
         return <p>'No Feedback Yet'</p>
     }
-  
-  return (
+  return isLoading ? <Spinner/> : (
     <div className="feedback-list">
       {feedback.map((item)=>(
         <FeedbackItem key={item.id} item={item}
